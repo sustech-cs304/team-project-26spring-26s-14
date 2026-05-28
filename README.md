@@ -49,14 +49,14 @@ src/
 
 ### 环境要求
 - Node.js >= 18
-- pnpm (推荐) / npm / yarn
+- npm >= 9
 
 ### 1. 克隆与安装
 
 ```bash
-git clone https://github.com/sustech-cs304/team-project-26spring-26s-14.git
+git clone <your-repo-url>
 cd campus-market
-pnpm install
+npm install
 ```
 
 ### 2. 配置环境变量
@@ -72,7 +72,7 @@ VITE_TENCENT_MAP_KEY=your-tencent-map-key
 ### 3. 启动开发服务器
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 访问 `http://localhost:5173`
@@ -80,7 +80,7 @@ pnpm dev
 ### 4. 构建生产版本
 
 ```bash
-pnpm build
+npm run build
 ```
 
 产物输出到 `dist/` 目录。
@@ -114,8 +114,6 @@ pnpm build
 
 ## 📸 系统截图
 
-> 请在此处插入关键页面截图（首页、地图、聊天、个人主页等）
-> 
 > 示例：
 > ![首页](docs/screenshots/home.png)
 > ![商品](docs/screenshots/items.png)
@@ -147,7 +145,7 @@ pnpm build
 | 指标 | 数值 |
 |------|------|
 | 总代码文件 | 34 |
-| 前端代码行 | 2624 |
+| 前端代码行 | 2,624 |
 | 平均圈复杂度 | 9.41 |
 | Vue 页面 | 13 |
 | API 模块 | 7 |
@@ -168,7 +166,7 @@ pnpm build
 ### Vercel 部署
 1. 在 [vercel.com](https://vercel.com) 导入 GitHub 仓库
 2. 设置环境变量（同上）
-3. 构建命令：`pnpm build`
+3. 构建命令：`npm run build`
 4. 输出目录：`dist`
 
 ### Supabase 生产环境
@@ -183,12 +181,12 @@ pnpm build
 - **触发条件**：每次 push 到 `main` / `develop` 分支，或提交 PR 到 `main`
 - **执行步骤**：
   1. 检出代码
-  2. 安装 Node.js 20 + pnpm
-  3. 安装依赖（`pnpm install --frozen-lockfile`）
-  4. 类型检查（`vue-tsc --noEmit`）
-  5. 代码检查（`pnpm lint`）
-  6. 运行测试（`pnpm test`）
-  7. 构建生产包（`vite build`）
+  2. 安装 Node.js 24 + npm
+  3. 安装依赖（`npm ci`）
+  4. 类型检查（`npx vue-tsc --noEmit`）
+  5. 代码检查（`npm run lint`）
+  6. 运行测试（`npm test`）
+  7. 构建生产包（`npm run build`）
   8. 上传 `dist/` 产物到 Artifacts
 - **状态反馈**：GitHub Actions 页面显示每步的 success / failure 状态
 
