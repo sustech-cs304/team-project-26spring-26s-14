@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-05-28T08:44:05.429423",
+  "summary": {
+    "total_files": 34,
+    "total_lines": 3082,
+    "code_lines": 2624,
+    "comment_lines": 104,
+    "blank_lines": 354,
+    "total_cyclomatic": 320,
+    "avg_cyclomatic": 9.41,
+    "max_cyclomatic": 40,
+    "max_cyclomatic_file": "src\\api\\items.ts"
+  },
+  "by_extension": {
+    ".html": {
+      "files": 1,
+      "code_lines": 13,
+      "cyclomatic": 1
+    },
+    ".js": {
+      "files": 2,
+      "code_lines": 15,
+      "cyclomatic": 2
+    },
+    ".ts": {
+      "files": 13,
+      "code_lines": 577,
+      "cyclomatic": 140
+    },
+    ".vue": {
+      "files": 17,
+      "code_lines": 2012,
+      "cyclomatic": 176
+    },
+    ".css": {
+      "files": 1,
+      "code_lines": 7,
+      "cyclomatic": 1
+    }
+  },
+  "architecture": {
+    "vue_components": 3,
+    "ts_api_files": 7,
+    "views": 13,
+    "stores": 1,
+    "router_files": 1,
+    "supabase_tables": 7
+  },
+  "dependencies": {
+    "production": 4,
+    "development": 9,
+    "total": 13
+  }
+}
