@@ -10,7 +10,9 @@ const infoWindow = ref<any>(null)
 const loading = ref(true)
 const errorMsg = ref('')
 
-const TENCENT_MAP_KEY = import.meta.env.VITE_TENCENT_MAP_KEY || ''
+// const TENCENT_MAP_KEY = import.meta.env.VITE_TENCENT_MAP_KEY || ''
+const TENCENT_MAP_KEY = import.meta.env.VITE_TENCENT_MAP_KEY || 'CTKBZ-OYTO7-BUSX4-HBESY-OH7PJ-WSFFJ'
+
 
 const loadScript = (src: string): Promise<void> => {
   return new Promise((resolve, reject) => {
