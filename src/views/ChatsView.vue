@@ -31,7 +31,7 @@ const goToChat = (otherUserId: string) => router.push(`/chat/${otherUserId}`)
 const goBack = () => router.push('/')
 </script>
 
-<<template>
+<template>
   <div class="min-h-screen bg-gray-50">
     <nav class="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
       <h1 class="text-xl font-bold text-gray-800">💬 消息中心</h1>
@@ -56,7 +56,19 @@ const goBack = () => router.push('/')
           class="bg-white rounded-xl shadow p-4 hover:shadow-md transition cursor-pointer flex justify-between items-center"
         >
           <div class="flex items-center gap-3 min-w-0">
-            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold flex-shrink-0">{{ conv.nickname?.[0] || '?' }}</div>
+            <!-- 有头像显示图片，没有则显示首字母 -->
+            <img 
+              v-if="conv.avatar_url" 
+              :src="conv.avatar_url" 
+              class="w-10 h-10 rounded-full object-cover flex-shrink-0 border border-gray-200"
+              alt="avatar"
+            />
+            <div 
+              v-else 
+              class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold flex-shrink-0"
+            >
+              {{ conv.nickname?.[0] || '?' }}
+            </div>
             <div class="min-w-0">
               <p class="font-medium text-gray-800">{{ conv.nickname || '未知用户' }}</p>
               <p class="text-sm text-gray-500 truncate max-w-[200px]">{{ conv.lastMessage }}</p>

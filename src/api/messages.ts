@@ -37,7 +37,7 @@ export async function sendMessage(receiverId: string, content: string, itemId?: 
   return data
 }
 
-// 获取当前用户的所有对话列表（带未读数）
+// 获取当前用户的所有对话列表（带未读数 + 头像）
 export async function getConversations() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) throw new Error('未登录')
@@ -71,24 +71,25 @@ export async function getConversations() {
     }
   })
   
-  // 获取对方资料
+  // 获取对方资料（昵称 + 头像）
   const userIds = Array.from(conversations.keys())
   if (userIds.length > 0) {
     const { data: profiles } = await supabase
       .from('profiles')
-      .select('id, nickname')
+      .select('id, nickname, avatar_url')  // ← 加了 avatar_url
       .in('id', userIds)
     
     profiles?.forEach((p: any) => {
       if (conversations.has(p.id)) {
-        conversations.get(p.id).nickname = p.nickname
+        const conv = conversations.get(p.id)
+        conv.nickname = p.nickname
+        conv.avatar_url = p.avatar_url || ''  // ← 加上头像
       }
     })
   }
   
   return Array.from(conversations.values())
 }
-
 
 // 标记与某用户的所有消息为已读
 export async function markMessagesAsRead(otherUserId: string) {
@@ -114,7 +115,6 @@ export async function markAllMessagesAsRead() {
     .eq('receiver_id', user.id)
     .eq('is_read', false)
 }
-
 
 // 订阅实时消息（备用）
 export function subscribeToMessages(callback: (payload: any) => void) {
