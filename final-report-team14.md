@@ -221,6 +221,7 @@ items    ||--o{ notifications : triggers
 ### 6.1 部署方式
 
 本项目部署在 **Vercel** 平台，通过 Fork 个人仓库实现自动部署。
+![Vercel Deploy](docs/screenshots/vercel-deploy.png)
 
 - **生产环境 URL**：`https://team-project-26spring-26s-14.vercel.app`
 - **Fork 仓库 URL**：`https://github.com/SEATheStArs12/team-project-26spring-26s-14`
@@ -243,7 +244,7 @@ Vercel 项目中配置了以下环境变量：
 
 | 成员 | 主要职责 | 贡献模块 |
 |------|----------|----------|
-| SEATHeStArs12 | 全栈开发、项目管理 | 前端架构、Supabase 后端、地图集成、CI/CD、部署、文档 |
+| 徐刘卓然 | 全栈开发、项目管理 | 前端架构、Supabase 后端、地图集成、CI/CD、部署、文档 |
 
 > 注：本团队为单人团队，经课程老师知情并同意。所有代码、文档与项目管理由该成员独立完成。
 
